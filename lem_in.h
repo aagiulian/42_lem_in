@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 14:45:17 by agiulian          #+#    #+#             */
-/*   Updated: 2017/04/19 19:55:48 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/04/21 16:58:28 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ typedef struct	s_lem
 {
 	t_list		*begin;
 	int			ant_nb;
+	int			start;
+	int			end;
+	int			tube;
 }				t_lem;
 
 #endif
