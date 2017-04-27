@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lem_in.h                                           :+:      :+:    :+:   */
+/*   ft_strisdigit.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/19 14:45:17 by agiulian          #+#    #+#             */
-/*   Updated: 2017/04/27 16:47:30 by agiulian         ###   ########.fr       */
+/*   Created: 2017/04/27 19:26:11 by agiulian          #+#    #+#             */
+/*   Updated: 2017/04/27 19:26:31 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LEM_IN_H
-# define LEM_IN_H
+#include "libft.h"
 
-# include "libft/libft/includes/libft.h"
-# include "libft/libft/includes/get_next_line.h"
-# include "libft/printf/ft_printf.h"
-
-typedef struct	s_lem
+int        ft_strisdigit(char *str)
 {
-	t_list		*begin;
-	int			ant_nb;
-	int			start;
-	int			end;
-	int			tube;
-	char		*start_s;
-	char		*end_s;
-	t_list		*tubes;
-	t_list		*rooms;
-}				t_lem;
+	int        i;
 
-#endif
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+			i++;
+		else
+			return (0);
+	}
+	return (1);
+}

@@ -6,7 +6,7 @@
 /*   By: agiulian <arthur.giuliano@student.42.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/16 20:53:51 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/27 15:56:29 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/04/27 19:27:18 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int					ft_isprint(int c);
 int					ft_ispunct(int c);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
+int					ft_strisdigit(char *str);
 
 void				ft_putendl(char const *s);
 void				ft_putchar_fd(char c, int fd);

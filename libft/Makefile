@@ -6,7 +6,7 @@
 #    By: agiulian <arthur.giuliano@student.42.fr>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/17 22:23:16 by agiulian          #+#    #+#              #
-#    Updated: 2017/03/17 18:49:18 by agiulian         ###   ########.fr        #
+#    Updated: 2017/04/27 19:26:59 by agiulian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,6 +87,7 @@ SRC = libft/ft_atoi.c \
 	  libft/ft_uitoabase.c \
 	  libft/ft_uitoabase_cap.c \
 	  libft/get_next_line.c \
+	  libft/ft_strisdigit.c \
 	  printf/ft_printf.c \
 	  printf/utility.c \
 	  printf/va_arg.c \
