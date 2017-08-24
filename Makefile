@@ -6,7 +6,7 @@
 #    By: agiulian <arthur.giuliano@student.42.fr>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/17 22:23:16 by agiulian          #+#    #+#              #
-#    Updated: 2017/06/20 16:07:46 by agiulian         ###   ########.fr        #
+#    Updated: 2017/08/24 16:40:52 by agiulian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,14 +14,14 @@ CC = gcc -Wall -Wextra -Werror
 
 NAME = lem-in 
 
-SRC = main.c \
-		ft_clstpush.c \
-		ft_clstdelone.c \
-		ft_clstnew.c \
-		check.c \
-		parse.c
+SRC = srcs/main.c \
+		srcs/ft_clstpush.c \
+		srcs/ft_clstdelone.c \
+		srcs/ft_clstnew.c \
+		srcs/check.c \
+		srcs/parse.c
 
-HEAD = -Ilibft/includes/ -Iprintf/. -I.
+HEAD = -Ilibft/includes/ -Iprintf/. -Iincludes/.
 
 LIB = libft/libftprintf.a
 

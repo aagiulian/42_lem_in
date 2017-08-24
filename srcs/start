@@ -1,0 +1,65 @@
+check.c:		if (map->start)
+check.c:		map->start = 1;
+check.c:		if (map->end)
+check.c:		map->end = 1;
+check.c:	list = map->rooms;
+check.c:	map->ant_nb = ft_atoi(line);
+check.c:	if (!map->ant_nb)
+main.c:  list = map->tubes;
+main.c:  while (map->tubes)
+main.c:  if (map->tubes->content)
+main.c:  tab = ft_strsplit(map->tubes->content, '-');
+main.c:  add_child(map->tree, tab[0], tab[1]);
+main.c:  add_child(map->tree, tab[1], tab[0]);
+main.c:  ft_strdel(&map->tubes->content);
+main.c:  map->tubes = map->tubes
+main.c:		map->tree = chd;
+main.c:	if (!ft_strcmp(current->content, map->end_s))
+main.c:	while (ft_strcmp(current->content, map->end_s))
+main.c:	if (!ft_strcmp(current->content, map->end_s))
+main.c:	tube = map->tubes;
+main.c:			if (!ft_strcmp(current->content, map->end_s))
+main.c:			if (tube == map->tubes)
+main.c:				map->tubes = map->tubes->next;
+main.c:				tube = map->tubes;
+main.c:			if (tube == map->tubes)
+main.c:				map->tubes = map->tubes->next;
+main.c:				tube = map->tubes;;
+main.c:		tube = map->tubes;
+main.c:	tube = map->tubes;
+main.c:	if (!ft_strcmp(name, map->end_s))
+main.c:			if (tube == map->tubes)
+main.c:				map->tubes = map->tubes->next;
+main.c:			tube = map->tubes;
+main.c:			if (tube == map->tubes)
+main.c:				map->tubes = map->tubes->next;
+main.c:			tube = map->tubes;;
+main.c:	map->begin = NULL;
+main.c:	map->start = 0;
+main.c:	map->start_s = NULL;
+main.c:	map->end_s = NULL;
+main.c:	map->tubes = NULL;
+main.c:	map->rooms = NULL;
+main.c:	map->end = 0;
+main.c:	map->tube = 0;
+main.c:	map->tree = NULL;
+main.c:	if (!map->begin || !map->start || !map->end || !map->tube || !map->start_s || !map->end_s)
+main.c:	add_node(map->start_s, NULL, map);
+main.c:	create_tree(map, map->start_s, map->tree);
+main.c:	print_tree(map->tree);
+main.c:	find_path(map, map->tree);
+main.c:	while (map->begin)
+main.c:		ft_putendl((map->begin)->content);
+main.c:		map->begin = (map->begin)->next;
+parse.c:	if (map->start == 1 && map->start++)
+parse.c:		map->start_s = tab[0];
+parse.c:	else if (map->end == 1 && map->end++)
+parse.c:		map->end_s = tab[0];
+parse.c:	ft_lstpush(&map->rooms, tab[0], ft_strlen(tab[0]) + 1);
+parse.c:		map->tube--;
+parse.c:		map->tube--;
+parse.c:		ft_clstpush(&map->tubes, line, ft_strlen(line) + 1);
+parse.c:	map->tube--;
+parse.c:			map->tube++;
+parse.c:		if (!ft_strlen(line) || line[0] == 'L' || (line[0] != '#' && map->tube && !ft_strstr(line, "-")))
+parse.c:		ft_lstpush(&map->begin, line, ft_strlen(line) + 1);	
