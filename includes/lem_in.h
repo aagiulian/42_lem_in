@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 14:45:17 by agiulian          #+#    #+#             */
-/*   Updated: 2017/08/24 16:41:24 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/05 17:44:17 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,14 @@ typedef struct			s_tree
 	struct s_tree		*parents;
 	struct s_tree		*next;
 }						t_tree;
+
+typedef struct			s_wlist
+{
+	char				*content;
+	struct s_wlist		*parent;
+	struct s_wlist		*next;
+	int					weight;
+}						t_wlist;
 
 typedef struct			s_clist
 {
