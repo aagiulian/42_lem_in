@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 14:45:17 by agiulian          #+#    #+#             */
-/*   Updated: 2017/09/05 17:44:17 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/06 18:26:37 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,14 @@ typedef struct	s_lem
 	int			start;
 	int			end;
 	int			tube;
+	int			mu;
 	char		*start_s;
 	char		*end_s;
 	t_clist		*tubes;
 	t_list		*rooms;
+	t_list		*paths;
 	t_tree		*tree;
+
 }				t_lem;
 
 void 			ft_clstdelone(t_clist **alst);
@@ -65,5 +68,7 @@ void			check_start_end(t_lem *map, char *line);
 int				check_room(t_lem *map, char *room1, char *room2);
 void			parse_ant(t_lem *map);
 void			parse(t_lem *map);
+void			print_path(t_lem *map);
+
 
 #endif

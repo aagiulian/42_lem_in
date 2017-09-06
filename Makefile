@@ -6,7 +6,7 @@
 #    By: agiulian <arthur.giuliano@student.42.fr>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/17 22:23:16 by agiulian          #+#    #+#              #
-#    Updated: 2017/08/24 16:40:52 by agiulian         ###   ########.fr        #
+#    Updated: 2017/09/06 18:11:36 by agiulian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ SRC = srcs/main.c \
 		srcs/ft_clstdelone.c \
 		srcs/ft_clstnew.c \
 		srcs/check.c \
-		srcs/parse.c
+		srcs/parse.c \
+		srcs/print.c
 
 HEAD = -Ilibft/includes/ -Iprintf/. -Iincludes/.
 

@@ -6,11 +6,31 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 14:25:09 by agiulian          #+#    #+#             */
-/*   Updated: 2017/09/05 22:43:17 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/06 19:16:08 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 // ATTENTION A REMETTRE LE NOMBRE DE FOURMIS AU DEBUT DE L'AFFICHAGE
 #include "lem_in.h"
+
+void	add_new_path(t_lem *map, t_wlist *parent)
+{
+	char	*path;
+	char	**tab;
+
+	path = ft_strdup(map->end_s);
+	while (parent->parent)
+	{
+		if (parent->weight > 1)
+			return ;
+		path = ft_strjoin(ft_strjoin(path, " "), parent->content);
+		parent->weight++;
+		parent = parent->parent;
+	}
+	path = ft_strjoin(ft_strjoin(path, " "), map->start_s);
+	tab = ft_strsplit(path, ' ');
+	ft_lstpush(&map->paths, tab, ft_tablen(tab) * sizeof(char*));
+	map->mu++;
+}
 
 int		only_one(char *name, t_wlist *starts)
 {
@@ -22,15 +42,19 @@ int		only_one(char *name, t_wlist *starts)
 	}
 	return (0);
 }
-
-void	add_to_end(char *name, t_wlist *wlist, t_wlist *starts)
+int	add_to_end(char *name, t_wlist *wlist, t_wlist *starts, t_lem *map)
 {	
 	t_wlist *chd;
 	t_wlist *parent;
-	
+
 	parent = wlist;
+	if (!ft_strcmp(name, map->end_s))
+	{
+		add_new_path(map, parent);
+		return (1);
+	}
 	if (only_one(name, starts))
-		return ;
+		return (0);
 	while (wlist->next)
 		wlist = wlist->next;
 	if (!(chd = (t_wlist*)malloc(sizeof(t_wlist))))
@@ -41,20 +65,23 @@ void	add_to_end(char *name, t_wlist *wlist, t_wlist *starts)
 	if (!(chd->content = ft_strdup(name)))
 		exit(-1);
 	wlist->next = chd;
+	return (0);
 }
 
 void	fill_list(t_lem *map, t_wlist *wlist, t_wlist *starts)
 {
 	t_clist *tube;
 	char	**tab;
+	int		ret;
 
+	ret = 0;
 	tube = map->tubes;
-	while (tube)
+	while (tube && ret != 1)
 	{
 		tab = ft_strsplit(tube->content, '-');
 		if (!ft_strcmp(wlist->content, tab[0]))
 		{
-			add_to_end(tab[1], wlist, starts);
+			ret = add_to_end(tab[1], wlist, starts, map);
 			if (tube == map->tubes)
 				map->tubes = map->tubes->next;
 			ft_clstdelone(&tube);
@@ -62,7 +89,7 @@ void	fill_list(t_lem *map, t_wlist *wlist, t_wlist *starts)
 		}
 		else if (!ft_strcmp(wlist->content, tab[1]))
 		{
-			add_to_end(tab[0], wlist, starts);
+			ret = add_to_end(tab[0], wlist, starts, map);
 			if (tube == map->tubes)
 				map->tubes = map->tubes->next;
 			ft_clstdelone(&tube);
@@ -82,32 +109,17 @@ void	make_list(t_lem *map, char *start)
 	starts = wlist;
 	wlist->content = ft_strdup(start);
 	wlist->parent = NULL;
-	while (ft_strcmp(wlist->content, map->end_s))
+	while (wlist && ft_strcmp(wlist->content, map->end_s))
 	{
 		wlist = starts;
-		while (wlist->weight == 1)
+		while (wlist && wlist->weight)
 			wlist = wlist->next;
-		wlist->weight = 1;
+		if (!wlist)
+			break ;
+		wlist->weight++;
 		fill_list(map, wlist, starts); 
 	}
 	wlist = starts;
-	while (starts)
-	{
-		ft_putstr(starts->content);
-		starts = starts->next;
-	}
-	ft_putendl("");
-	starts = wlist;
-	while (ft_strcmp(starts->content, map->end_s))
-		starts = starts->next;
-	while (starts->parent)
-	{
-		ft_putstr(starts->content);
-		if (starts->parent)
-			ft_putstr(" => ");
-		starts = starts->parent;
-	}
-	ft_putendl(starts->content);
 }
 
 t_lem *init_struct(void)
@@ -118,12 +130,14 @@ t_lem *init_struct(void)
 	map->begin = NULL;
 	map->start = 0;
 	map->start_s = NULL;
+	map->mu = 0;
 	map->end_s = NULL;
 	map->tubes = NULL;
 	map->rooms = NULL;
 	map->end = 0;
 	map->tube = 0;
 	map->tree = NULL;
+	map->paths = NULL;
 	return (map);
 }
 
@@ -145,17 +159,19 @@ int main(int argc, char **argv)
 		exit(-1);
 	}
 	make_list(map, map->start_s);
-	/*
-	   add_node(map->start_s, NULL, map);
-	   create_tree(map, map->start_s, map->tree);
-	   print_tree(map->tree);
-	   find_path(map, map->tree);
-	   ft_putendl("");
-	   */
+	if (!map->paths)
+	{
+		ft_putendl("ERROR : NO PATH FOUND");
+		exit (-1);
+	}
+	ft_putnbr(map->ant_nb);
+	ft_putendl("");
 	while (map->begin)
 	{
 		ft_putendl((map->begin)->content);
 		map->begin = (map->begin)->next;
 	}
+	ft_putendl("");
+	print_path(map);
 	return (0);
 }

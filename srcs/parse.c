@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 14:25:09 by agiulian          #+#    #+#             */
-/*   Updated: 2017/09/05 16:12:27 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/06 13:59:39 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "lem_in.h"
@@ -43,7 +43,7 @@ int		add_tube(char *line, t_lem *map)
 	if (tab[2] || !tab[0] || !tab[1] || check_room(map, tab[0], tab[1]))
 	{
 		map->tube--;
-		ft_tabdel(&tab);
+		//ft_tabdel(&tab); SINON MALLOC ERROR 
 		return (-1);
 	}
 	else if (ft_strcmp(tab[0], tab[1]))
