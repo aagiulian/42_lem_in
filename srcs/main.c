@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 14:25:09 by agiulian          #+#    #+#             */
-/*   Updated: 2017/09/06 19:16:08 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/07 19:52:02 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 // ATTENTION A REMETTRE LE NOMBRE DE FOURMIS AU DEBUT DE L'AFFICHAGE
@@ -17,7 +17,8 @@ void	add_new_path(t_lem *map, t_wlist *parent)
 	char	*path;
 	char	**tab;
 
-	path = ft_strdup(map->end_s);
+	if (!(path = ft_strdup(map->end_s)))
+			return ;
 	while (parent->parent)
 	{
 		if (parent->weight > 1)
@@ -26,9 +27,9 @@ void	add_new_path(t_lem *map, t_wlist *parent)
 		parent->weight++;
 		parent = parent->parent;
 	}
-	path = ft_strjoin(ft_strjoin(path, " "), map->start_s);
 	tab = ft_strsplit(path, ' ');
-	ft_lstpush(&map->paths, tab, ft_tablen(tab) * sizeof(char*));
+	ft_strdel(&path);
+	ft_lstpush(&map->paths, tab, (ft_tablen(tab) + 1) * sizeof(char*));
 	map->mu++;
 }
 
@@ -173,5 +174,7 @@ int main(int argc, char **argv)
 	}
 	ft_putendl("");
 	print_path(map);
+	free_all(map);
+	//multi_path(map);
 	return (0);
 }

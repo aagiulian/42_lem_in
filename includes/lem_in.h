@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 14:45:17 by agiulian          #+#    #+#             */
-/*   Updated: 2017/09/06 18:26:37 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/07 19:51:38 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ int				check_room(t_lem *map, char *room1, char *room2);
 void			parse_ant(t_lem *map);
 void			parse(t_lem *map);
 void			print_path(t_lem *map);
+void			multi_path(t_lem *map);
+void			free_all(t_lem *map);
 
 
 #endif

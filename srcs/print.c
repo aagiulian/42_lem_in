@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 08:57:19 by agiulian          #+#    #+#             */
-/*   Updated: 2017/09/06 19:59:20 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/07 18:21:30 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,37 +42,58 @@ void	print_path(t_lem *map)
 	}
 }
 
-void	print_path_multi(t_lem *map)
+void	move_ant(t_list *p, int i, int j, int k, t_lem *map)
+{
+	char **tab;
+
+	ft_printf("\ni = %i\n", i);
+	ft_printf("j = %i\n", j);
+	ft_printf("k = %i\n", k);
+	
+	//if (!p)
+	//	return ;
+	tab = (char**)p->content;
+	if (ft_tablen(tab) - i + j < 0)
+		return ;
+	ft_printf("L%i-%s", 1 + j + k, tab[ft_tablen(tab) - i + j]);
+	if (k + 1 < i * map->mu && j + 1 < map->ant_nb)
+		ft_putchar(' ');
+}
+
+void	multi_path(t_lem *map)
 {
 	int i;
 	int	j;
-	int	k;
 	int	ant_in;
-	t_list *start;
+	t_list *p;
+	int	k;
+	char	**tab;
 
-	start = map->paths->content;
-
+	tab = (char**)map->paths->content;
 	ant_in = 0;
 	i = 1;
-	while (i < (map->ant_nb + ft_tablen(map->paths->content) / map->mu))
+	while (i < map->ant_nb + ft_tablen(map->paths->content))
 	{
-		k = 0;
+		p = map->paths;
 		j = 0;
-		if (i > ft_tablen(map->paths->content))
+		if (i > ft_tablen(map->paths->content) * map->mu)
 		{
-			ant_in + map->mu;
+			ant_in += map->mu;
 			j = ant_in;
 		}
-		while (j < i && j < map->ant_nb)
+		while (j < i * map->mu && j < map->ant_nb)
 		{
-			while (k < mu)
+			k = 0;
+			if (j % map->mu == 0)
+				p = map->paths;
+			while (k < map->mu)
 			{
-			tab = (char**)map->paths->content;
-			ft_printf("L%i-%s", 1 + j, tab[ft_tablen(tab) - i + j]);
-			if (j + 1 < i && j + 1 < map->ant_nb)
-				ft_putchar(' ');
+				move_ant(p, i, j, k, map);
+				p = p->next;
+				k++;
 			}
-			j++;
+			j += k;
+		//	ft_printf("\n-%i-\n", j);
 		}
 		ft_putendl("");
 		i++;

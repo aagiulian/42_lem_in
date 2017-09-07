@@ -6,7 +6,7 @@
 /*   By: agiulian <arthur.giuliano@student.42.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/16 20:53:51 by agiulian          #+#    #+#             */
-/*   Updated: 2017/04/27 19:27:18 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/07 19:07:54 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ char				**ft_strsplit(char const *s, char c);
 char				*ft_strstr(const char *big, const char *little);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strtrim(char const *s);
-void				ft_tabdel(char ***tab);
+void				ft_tabdel(char **tab);
 int					ft_tablen(char **tab);
 
 #endif

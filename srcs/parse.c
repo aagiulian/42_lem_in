@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 14:25:09 by agiulian          #+#    #+#             */
-/*   Updated: 2017/09/06 13:59:39 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/07 19:24:04 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "lem_in.h"
@@ -18,7 +18,7 @@ int		add_room(char *line, t_lem *map)
 	tab = ft_strsplit(line, ' ');
 	if (tab[3] || !tab[0] || !tab[1] || !tab[2] || !ft_strisdigit(tab[1]) || !ft_strisdigit(tab[2])) // RAJOUTER FT_STRISDIGIT ET VERIFIER LE L
 	{
-		//ft_tabdel(&tab);
+		ft_tabdel(tab);
 		return (-1);
 	}
 	if (map->start == 1 && map->start++)
@@ -26,7 +26,7 @@ int		add_room(char *line, t_lem *map)
 	else if (map->end == 1 && map->end++)
 		map->end_s = tab[0];
 	ft_lstpush(&map->rooms, tab[0], ft_strlen(tab[0]) + 1);
-	//ft_tabdel(&tab);
+	//ft_tabdel(tab);
 	return (0);
 }
 
@@ -43,16 +43,16 @@ int		add_tube(char *line, t_lem *map)
 	if (tab[2] || !tab[0] || !tab[1] || check_room(map, tab[0], tab[1]))
 	{
 		map->tube--;
-		//ft_tabdel(&tab); SINON MALLOC ERROR 
+		//ft_tabdel(tab);
 		return (-1);
 	}
 	else if (ft_strcmp(tab[0], tab[1]))
 	{
-		//	ft_tabdel(&tab);
 		ft_clstpush(&map->tubes, line, ft_strlen(line) + 1);
+		//ft_tabdel(tab);
 		return (0);
 	}
-	ft_tabdel(&tab);
+	ft_tabdel(tab);
 	map->tube--;
 	return (-1);
 }
@@ -93,4 +93,5 @@ void	parse(t_lem* map)
 		}
 		ft_lstpush(&map->begin, line, ft_strlen(line) + 1);	
 	}
+	ft_strdel(&line);
 }
