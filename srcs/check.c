@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/20 15:57:01 by agiulian          #+#    #+#             */
-/*   Updated: 2017/09/07 19:25:04 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/08 16:37:56 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	check_start_end(t_lem *map, char *line)
 	}
 }
 
-int		check_room(t_lem* map, char *room1, char *room2)
+int		check_room(t_lem *map, char *room1, char *room2)
 {
 	int		count1;
 	int		count2;
@@ -56,7 +56,7 @@ int		check_room(t_lem* map, char *room1, char *room2)
 	return (-1);
 }
 
-void	parse_ant(t_lem* map)
+void	parse_ant(t_lem *map)
 {
 	char *line;
 

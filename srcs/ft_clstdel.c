@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_clstdelone.c                                    :+:      :+:    :+:   */
+/*   ft_clstdel.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/01 14:13:09 by agiulian          #+#    #+#             */
-/*   Updated: 2017/09/08 16:38:29 by agiulian         ###   ########.fr       */
+/*   Created: 2017/09/08 10:36:58 by agiulian          #+#    #+#             */
+/*   Updated: 2017/09/08 10:44:26 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void	ft_clstdelone(t_clist **alst, void (*del)(void*, size_t))
+void	ft_clstdel(t_clist **alst, void (*del)(void*, size_t))
 {
-	if ((*alst)->previous)
-		(*alst)->previous->next = (*alst)->next;
-	if ((*alst)->next)
-		(*alst)->next->previous = (*alst)->previous;
-	del(*alst, (*alst)->content_size);
+	t_clist	*lst;
+
+	while (*alst)
+	{
+		lst = (*alst)->next;
+		ft_clstdelone(alst, del);
+		*alst = lst;
+	}
 	*alst = NULL;
 }

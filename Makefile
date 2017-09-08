@@ -6,7 +6,7 @@
 #    By: agiulian <arthur.giuliano@student.42.fr>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/17 22:23:16 by agiulian          #+#    #+#              #
-#    Updated: 2017/09/07 19:52:40 by agiulian         ###   ########.fr        #
+#    Updated: 2017/09/08 10:39:33 by agiulian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ NAME = lem-in
 SRC = srcs/main.c \
 		srcs/ft_clstpush.c \
 		srcs/ft_clstdelone.c \
+		srcs/ft_clstdel.c \
 		srcs/ft_clstnew.c \
 		srcs/check.c \
 		srcs/parse.c \

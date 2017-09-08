@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 08:57:19 by agiulian          #+#    #+#             */
-/*   Updated: 2017/09/07 18:21:30 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/08 16:42:09 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	print_path(t_lem *map)
 {
-	int i;
-	int	j;
-	int	ant_in;
+	int		i;
+	int		j;
+	int		ant_in;
 	char	**tab;
 
 	ant_in = 0;
@@ -49,7 +49,6 @@ void	move_ant(t_list *p, int i, int j, int k, t_lem *map)
 	ft_printf("\ni = %i\n", i);
 	ft_printf("j = %i\n", j);
 	ft_printf("k = %i\n", k);
-	
 	//if (!p)
 	//	return ;
 	tab = (char**)p->content;
@@ -62,11 +61,11 @@ void	move_ant(t_list *p, int i, int j, int k, t_lem *map)
 
 void	multi_path(t_lem *map)
 {
-	int i;
-	int	j;
-	int	ant_in;
-	t_list *p;
-	int	k;
+	int		i;
+	int		j;
+	int		ant_in;
+	t_list	*p;
+	int		k;
 	char	**tab;
 
 	tab = (char**)map->paths->content;

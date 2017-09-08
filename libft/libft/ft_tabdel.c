@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/08 20:52:56 by agiulian          #+#    #+#             */
-/*   Updated: 2017/09/07 19:07:08 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/08 14:13:03 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ void	ft_tabdel(char **tab)
 		ft_strdel(&tab[i]);
 		i++;
 	}
-	ft_strdel(tab);
+	free(tab);
+	tab = NULL;
 }
