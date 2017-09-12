@@ -6,7 +6,7 @@
 /*   By: agiulian <arthur.giuliano@student.42.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/16 20:53:51 by agiulian          #+#    #+#             */
-/*   Updated: 2017/09/07 19:07:54 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/12 16:04:57 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void				*ft_memset(void *b, int c, size_t len);
 int					ft_intlen(unsigned long long int i);
 unsigned long long	ft_intsize(unsigned long long int i, int base);
 
-int					ft_atoi(const char *str);
+long long			ft_atoi(const char *str);
 char				*ft_itoa(int n);
 char				*ft_itoabase(long long int nbr, int base);
 char				*ft_itoabase_cap(long long int nbr, int base);

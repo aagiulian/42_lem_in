@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/20 15:57:01 by agiulian          #+#    #+#             */
-/*   Updated: 2017/09/12 14:26:14 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/12 16:08:08 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	check_start_end(t_lem *map, char *line)
 			exit(-1);
 		}
 		map->start = 1;
+		map->save = map->c;
 	}
 	if (!ft_strcmp("##end", line))
 	{
@@ -31,6 +32,7 @@ void	check_start_end(t_lem *map, char *line)
 			exit(-1);
 		}
 		map->end = 1;
+		map->save = map->c;
 	}
 }
 
@@ -61,10 +63,12 @@ void	parse_ant(t_lem *map)
 	char *line;
 
 	line = NULL;
-	get_next_line(0, &line);
-	map->ant_nb = ft_atoi(line);
-	ft_strdel(&line);
-	if (!map->ant_nb)
+	if (get_next_line(0, &line) > 0)
+	{
+		map->ant_nb = ft_atoi(line);
+		ft_strdel(&line);
+	}
+	if (!map->ant_nb || map->ant_nb <= 0 || map->ant_nb > 2146473547)
 	{
 		ft_putendl("ERROR");
 		exit(-1);

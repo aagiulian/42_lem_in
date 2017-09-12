@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 13:21:18 by agiulian          #+#    #+#             */
-/*   Updated: 2017/09/12 13:22:28 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/12 15:23:56 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ static void	free_path(void *path, size_t size)
 
 void		free_all(t_lem *map)
 {
-	ft_lstdel(&map->paths, &free_path);
+	if (map->paths)
+		ft_lstdel(&map->paths, &free_path);
 	ft_strdel(&(map->start_s));
 	ft_strdel(&(map->end_s));
 	ft_lstdel(&map->rooms, &free_room);

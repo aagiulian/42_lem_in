@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 14:45:17 by agiulian          #+#    #+#             */
-/*   Updated: 2017/09/12 14:45:32 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/12 16:05:24 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,14 @@ typedef struct			s_clist
 typedef struct			s_lem
 {
 	t_list				*begin;
-	int					ant_nb;
-	int					ant_in;
+	long long 			ant_nb;
+	long long			ant_in;
 	int					start;
 	int					end;
 	int					tube;
 	int					mu;
+	int					c;
+	int					save;
 	char				*start_s;
 	char				*end_s;
 	t_clist				*tubes;

@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 14:25:09 by agiulian          #+#    #+#             */
-/*   Updated: 2017/09/12 14:49:15 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/12 15:42:03 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ t_lem		*init_struct(void)
 	map->rooms = NULL;
 	map->end = 0;
 	map->tube = 0;
+	map->c = 0;
+	map->save = 0;
 	map->tree = NULL;
 	map->paths = NULL;
 	return (map);

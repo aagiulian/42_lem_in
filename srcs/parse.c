@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/08 16:42:59 by agiulian          #+#    #+#             */
-/*   Updated: 2017/09/12 14:24:52 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/12 15:51:11 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,15 @@ int		add_room(char *line, t_lem *map)
 		ft_tabdel(tab);
 		return (-1);
 	}
-	if (map->start == 1 && map->start++)
-		map->start_s = ft_strdup(tab[0]);
-	else if (map->end == 1 && map->end++)
-		map->end_s = ft_strdup(tab[0]);
+	if ((map->start == 1) || (map->end == 1))
+	{
+		if (map->c != map->save + 1)
+			return (-1);
+		else if (map->end == 1 && map->end++)
+			map->end_s = ft_strdup(tab[0]);
+		else if (map->start == 1 && map->start++)
+			map->start_s = ft_strdup(tab[0]);
+	}
 	ft_lstpush(&map->rooms, tab[0], ft_strlen(tab[0]) + 1);
 	ft_tabdel(tab);
 	return (0);
@@ -79,6 +84,7 @@ void	parse(t_lem *map)
 	parse_ant(map);
 	while (get_next_line(0, &line) > 0)
 	{
+		map->c++;
 		if (ft_strlen(line) && line[0] != 'L' && line[0] != '#' && \
 				ft_strstr(line, "-"))
 			map->tube++;
@@ -92,8 +98,8 @@ void	parse(t_lem *map)
 			ft_strdel(&line);
 			return ;
 		}
-		free(line);
 		ft_lstpush(&map->begin, line, ft_strlen(line) + 1);
+		free(line);
 	}
 	ft_strdel(&line);
 }

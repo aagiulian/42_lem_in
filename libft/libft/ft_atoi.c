@@ -6,15 +6,15 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/05 17:19:18 by agiulian          #+#    #+#             */
-/*   Updated: 2016/11/05 18:14:39 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/12 16:19:37 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *str)
+long long	ft_atoi(const char *str)
 {
-	int i;
-	int result;
-	int negative;
+	int			i;
+	long long	result;
+	int			negative;
 
 	i = 0;
 	negative = 0;
