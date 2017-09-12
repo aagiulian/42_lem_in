@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 14:45:17 by agiulian          #+#    #+#             */
-/*   Updated: 2017/09/12 16:32:24 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/12 21:46:33 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,13 @@ typedef struct			s_clist
 	struct s_clist		*next;
 }						t_clist;
 
+typedef struct			s_room
+{
+	char				*name;
+	int					ant_nb;
+	struct t_room		*next;
+}						t_room;
+
 typedef struct			s_lem
 {
 	t_list				*begin;
@@ -43,12 +50,15 @@ typedef struct			s_lem
 	int					tube;
 	int					mu;
 	int					c;
+	int					c_p;
+	int					c_m;
 	int					save;
 	char				*start_s;
 	char				*end_s;
 	t_clist				*tubes;
 	t_list				*rooms;
 	t_list				*paths;
+	t_list				*way;
 }						t_lem;
 
 void					ft_clstdelone(t_clist **alst, void (*del)(void*, \

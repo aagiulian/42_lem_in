@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 14:25:09 by agiulian          #+#    #+#             */
-/*   Updated: 2017/09/12 16:32:44 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/12 18:27:32 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ t_lem		*init_struct(void)
 	map->c = 0;
 	map->save = 0;
 	map->paths = NULL;
+	map->c_p = 0;
+	map->c_m = 0;
 	return (map);
 }
 
@@ -51,15 +53,41 @@ static void	parse_all(t_lem *map)
 	}
 }
 
+static int	check_args(int argc, char **argv, t_lem *map)
+{
+	if (argc > 2)
+	{
+		ft_putstr("Usage : ./lem-in [-p] < {map_file}\n");
+		ft_putstr("                  -p : displays the paths\n");
+		ft_putstr("                  -m : multi path\n");
+		return (-1);
+	}
+	else if (argc == 2)
+	{
+		if (!ft_strcmp("-p", argv[1]))
+			map->c_p = 1;
+		if (!ft_strcmp("-m", argv[1]))
+			map->c_m = 1;
+		else
+		{
+			ft_putstr("Usage : ./lem-in [-p] < {map_file}\n");
+			ft_putstr("                  -p : displays the paths\n");
+			ft_putstr("                  -m : multi path\n");
+			return (-1);
+		}
+	}
+	return (0);
+}
+
 int			main(int argc, char **argv)
 {
 	t_lem	*map;
 
 	argv[0] = 0;
 	map = init_struct();
-	if (argc != 1)
+	if (check_args(argc, argv, map))
 	{
-		ft_putstr("Usage : ./lem-in < {map_file}\n");
+		free_all(map);
 		return (0);
 	}
 	parse_all(map);
