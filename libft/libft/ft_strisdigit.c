@@ -6,15 +6,15 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 19:26:11 by agiulian          #+#    #+#             */
-/*   Updated: 2017/04/27 19:26:31 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/12 13:08:16 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int        ft_strisdigit(char *str)
+int	ft_strisdigit(char *str)
 {
-	int        i;
+	int	i;
 
 	i = 0;
 	while (str[i])
