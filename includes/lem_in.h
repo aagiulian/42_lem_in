@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 14:45:17 by agiulian          #+#    #+#             */
-/*   Updated: 2017/09/12 13:14:31 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/12 14:45:32 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct			s_lem
 {
 	t_list				*begin;
 	int					ant_nb;
+	int					ant_in;
 	int					start;
 	int					end;
 	int					tube;
@@ -77,5 +78,8 @@ void					check_start_end(t_lem *map, char *line);
 t_list					*ft_lstnewtube(void const *content);
 void					ft_lstpushtube(t_list **begin_list, void *content);
 void					free_wlist(t_wlist **alst);
+void					make_list(t_lem *map, char *start);
+int						only_one(char *name, t_wlist *starts);
+void					print_all(t_lem *map);
 
 #endif

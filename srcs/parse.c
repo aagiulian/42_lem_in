@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/08 16:42:59 by agiulian          #+#    #+#             */
-/*   Updated: 2017/09/08 16:43:01 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/12 14:24:52 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int		add_room(char *line, t_lem *map)
 	char **tab;
 
 	tab = ft_strsplit(line, ' ');
-	if (tab[3] || !tab[0] || !tab[1] || !tab[2] || !ft_strisdigit(tab[1]) || !ft_strisdigit(tab[2])) // RAJOUTER FT_STRISDIGIT ET VERIFIER LE L
+	if (tab[3] || !tab[0] || !tab[1] || !tab[2] || !ft_strisdigit(tab[1]) \
+			|| !ft_strisdigit(tab[2]))
 	{
 		ft_tabdel(tab);
 		return (-1);
@@ -70,7 +71,7 @@ int		store(char *line, t_lem *map)
 	return (0);
 }
 
-void	parse(t_lem* map)
+void	parse(t_lem *map)
 {
 	char *line;
 
@@ -78,23 +79,21 @@ void	parse(t_lem* map)
 	parse_ant(map);
 	while (get_next_line(0, &line) > 0)
 	{
-		if (ft_strlen(line) && line[0] != 'L' && line[0] != '#' && ft_strstr(line, "-"))
+		if (ft_strlen(line) && line[0] != 'L' && line[0] != '#' && \
+				ft_strstr(line, "-"))
 			map->tube++;
-		if (!ft_strlen(line) || line[0] == 'L' || (line[0] != '#' && map->tube && !ft_strstr(line, "-")))
-		{
-			ft_putendl("STOP PARSE");
+		if (!ft_strlen(line) || line[0] == 'L' || (line[0] != '#' \
+					&& map->tube && !ft_strstr(line, "-")))
 			return ;
-		}
 		if (line[0] == '#')
 			check_start_end(map, line);
 		if (store(line, map))
 		{
-	ft_strdel(&line);
-			ft_putendl("STOP PARSE");
+			ft_strdel(&line);
 			return ;
 		}
 		free(line);
-		ft_lstpush(&map->begin, line, ft_strlen(line) + 1);	
+		ft_lstpush(&map->begin, line, ft_strlen(line) + 1);
 	}
 	ft_strdel(&line);
 }
