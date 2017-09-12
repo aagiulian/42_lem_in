@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 14:45:17 by agiulian          #+#    #+#             */
-/*   Updated: 2017/09/12 16:05:24 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/12 16:32:24 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,6 @@
 # include "../libft/libft/includes/libft.h"
 # include "../libft/libft/includes/get_next_line.h"
 # include "../libft/printf/ft_printf.h"
-
-typedef struct			s_tree
-{
-	char				*content;
-	struct s_tree		*parent;
-	struct s_tree		*child;
-	struct s_tree		*sibling;
-	int					weight;
-	struct s_tree		*parents;
-	struct s_tree		*next;
-}						t_tree;
 
 typedef struct			s_wlist
 {
@@ -47,7 +36,7 @@ typedef struct			s_clist
 typedef struct			s_lem
 {
 	t_list				*begin;
-	long long 			ant_nb;
+	long long			ant_nb;
 	long long			ant_in;
 	int					start;
 	int					end;
@@ -60,7 +49,6 @@ typedef struct			s_lem
 	t_clist				*tubes;
 	t_list				*rooms;
 	t_list				*paths;
-	t_tree				*tree;
 }						t_lem;
 
 void					ft_clstdelone(t_clist **alst, void (*del)(void*, \
