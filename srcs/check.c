@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/20 15:57:01 by agiulian          #+#    #+#             */
-/*   Updated: 2017/09/12 16:08:08 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/13 17:28:06 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	parse_ant(t_lem *map)
 	char *line;
 
 	line = NULL;
-	if (get_next_line(0, &line) > 0)
+	if (get_next_line(0, &line) > 0 && ft_strlen(line))
 	{
 		map->ant_nb = ft_atoi(line);
 		ft_strdel(&line);
