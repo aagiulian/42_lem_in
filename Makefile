@@ -6,7 +6,7 @@
 #    By: agiulian <arthur.giuliano@student.42.fr>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/17 22:23:16 by agiulian          #+#    #+#              #
-#    Updated: 2017/09/12 14:31:37 by agiulian         ###   ########.fr        #
+#    Updated: 2017/09/13 16:33:57 by agiulian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,8 @@ SRC = srcs/main.c \
 		srcs/utility.c \
 		srcs/free.c \
 		srcs/bfs.c \
+		srcs/multi.c \
+		srcs/multi_bis.c \
 		srcs/print.c
 
 HEAD = -Ilibft/includes/ -Iprintf/. -Iincludes/.

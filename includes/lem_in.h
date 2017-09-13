@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 14:45:17 by agiulian          #+#    #+#             */
-/*   Updated: 2017/09/12 21:46:33 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/13 17:13:18 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ typedef struct			s_clist
 typedef struct			s_room
 {
 	char				*name;
-	int					ant_nb;
-	struct t_room		*next;
+	int					nb;
+	int					to_move;
+	struct s_room		*next;
 }						t_room;
 
 typedef struct			s_lem
@@ -81,5 +82,9 @@ void					free_wlist(t_wlist **alst);
 void					make_list(t_lem *map, char *start);
 int						only_one(char *name, t_wlist *starts);
 void					print_all(t_lem *map);
+void					create_path_room(t_lem *map);
+int						init_multi(t_lem *map);
+void					update_room(t_lem *map);
+void					free_way(void *way, size_t size);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 14:25:09 by agiulian          #+#    #+#             */
-/*   Updated: 2017/09/12 18:27:32 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/13 15:33:41 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static int	check_args(int argc, char **argv, t_lem *map)
 	{
 		if (!ft_strcmp("-p", argv[1]))
 			map->c_p = 1;
-		if (!ft_strcmp("-m", argv[1]))
+		else if (!ft_strcmp("-m", argv[1]))
 			map->c_m = 1;
 		else
 		{
