@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/13 16:28:11 by agiulian          #+#    #+#             */
-/*   Updated: 2017/09/13 17:37:03 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/09/13 17:42:42 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ int				init_multi(t_lem *map)
 
 void			free_way(void *way, size_t size)
 {
-	t_room *room;
-	t_room *save;
+	t_room	*room;
+	t_room	*save;
 	char	*str;
 
 	(void)size;
